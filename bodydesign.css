@@ -1,0 +1,447 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: #004466;
+  line-height: 1.6;
+  background-color: #fffdf4;
+  
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color:#004466;;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ color: #f1f1f1;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.top-left {
+  margin: 0rem 0;
+}
+.top-right {
+  margin: 0rem 0;
+}
+
+/* Header */
+header {
+ background-color: #ffd700;
+  color: #004466;
+  padding: 1rem 1rem;
+  position: absolute;
+  top: 3rem; /* Adjusted to accommodate the top bar */
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+.logo {
+padding: 20x;    height: 90px;
+    width: 70px;
+    
+  }
+  .company-name {
+  color: #03366d; /* Bright blue */
+  font-weight: bold;
+  font-size: 4.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin: 0;
+ 
+  text-align: center;
+  background-color:  transparent/* Light background for contrast */
+ /* border-bottom : 3px solid #007BFF; */
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+  .nav-links li a {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    
+  }
+  .nav-links li a:hover {
+    color: #ffffff;
+  }
+  
+  
+
+.menubar {
+    color: #03366d;
+  font-weight: bold;
+  font-size: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+/* Container for both icons */
+ .menu-icons {
+      display: none;
+      cursor: pointer;
+      font-size: 2rem;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      z-index: 1001;
+    }
+       
+    .menu-icons{display: none;}
+
+    .hamburger-icon{display: none;}
+    
+    .close-icon{display: none;}
+
+/* Hamburger styling */
+
+/* Hide nav menu on mobile */
+.nav-menu {
+  display: flex;
+}
+ 
+  
+@media (max-width: 768px) {
+  
+  
+   .menu-icons {
+        display: block;
+      }
+
+      .hamburger-icon {
+        display: block;
+      }
+
+      .close-icon {
+        display: none;
+      }
+     
+      .logo{
+    padding: 120x;
+ height: 60px;
+    width: 60px;
+}
+
+.company-name {
+  color: #03366d;
+  font-weight: bold;
+  font-size: 1.7rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+  text-align: center;
+   padding: 10px;
+}
+
+  .nav-menu {
+    display: none; /* Hide nav menu by default on mobile */
+        flex-direction: column;
+        background-color: #ffd700;
+        padding: 10px;
+        position: absolute;
+        top: 70px; /* Adjust based on your header height */
+        right: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 5px;
+        z-index: 1000;
+  }
+ .nav-menu.active {
+        display: flex; /* Show nav menu when active */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links li a {
+        font-size: 1rem; /* Adjust font size for mobile nav links */
+        color: #333;
+    }
+  }
+  .menu-icons {
+  display: flex;
+  align-items: top ;
+  gap: 20px;
+  position: absolute;
+  top: px;
+  right: 2px;
+  z-index: 20;
+}
+  
+/* Slider */
+.slider {
+    margin-top: 12rem; /* Adjusted to accommodate fixed top bar and header */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Adjust height as needed */
+    max-height: 500px; /* Max height for desktop */
+}
+
+.slides {
+    display: flex;
+    animation: slide 15s infinite;
+    transition: transform 0.5s ease-in-out;
+    width: 600vw; /* 6 images * 100vw */
+    height: 100%;
+}
+
+.slides img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    float: left;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    16% { transform: translateX(0); } /* Stay for a bit */
+
+    20% { transform: translateX(-100vw); }
+    36% { transform: translateX(-100vw); }
+
+    40% { transform: translateX(-200vw); }
+    56% { transform: translateX(-200vw); }
+
+    60% { transform: translateX(-300vw); }
+    76% { transform: translateX(-300vw); }
+
+    80% { transform: translateX(-400vw); }
+    96% { transform: translateX(-400vw); }
+
+    100% { transform: translateX(-500vw); } /* Go to the last slide */
+    100% { transform: translateX(0); } /* Reset to first */
+}
+/* Re-adjust keyframes if you only want 5 visible slides and then loop */
+/* New Keyframes for 6 images in slider, moving to 500vw then resetting */
+@keyframes slide {
+    0%, 15% { transform: translateX(0); } /* Image 1 */
+    18%, 33% { transform: translateX(-100vw); } /* Image 2 */
+    36%, 51% { transform: translateX(-200vw); } /* Image 3 */
+    54%, 69% { transform: translateX(-300vw); } /* Image 4 */
+    72%, 87% { transform: translateX(-400vw); } /* Image 5 */
+    90%, 100% { transform: translateX(-500vw); } /* Image 6 (last image, then snap back) */
+    /* Note: The last 100% should usually be a reset to 0 for seamless loop or another transition */
+    /* A common technique is to have the last frame be the same as the first for continuous feel */
+    /* For a true loop back, the animation might need more frames or JavaScript for smoothness */
+}
+/* description section*/
+.description {
+   background-color: #f8f9fa;
+  padding: 1rem 0rem;
+  text-align: center;
+}
+.description h1{
+   color: #004466;
+  margin-bottom: 2rem;
+  text-align: center;
+
+}
+.company-history p {
+   color: #004466;
+   
+
+}
+company-history h2{
+  color: #101314;
+
+}
+.description p a {
+    color: #004466; /* Match your primary brand blue */
+    text-decoration: underline; /* Underline to clearly indicate it's a link */
+    font-weight: bold; /* Make it bold to stand out */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.description p a:hover {
+    color: #ffd700; /* Change color on hover (e.g., to your header yellow) */
+    text-decoration: none; /* Remove underline on hover */
+}
+/* Products Section */
+.products {
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.products h2 {
+  color: #004466;
+  margin-bottom: 2rem;
+}
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.product-card {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  padding: 1rem;
+  background-color: #f1f1f1;
+}
+/* Dimension Section */
+.dimension  {
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.dimension h2 {
+  color: #004466;
+  margin-bottom: 1.5rem;
+}
+.dimension-card img {
+  width: 75%;
+  height: auto;
+  object-fit: cover;
+}
+.industries  {
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+ text-align: center;
+}
+.industries h2 {
+  color: #004466;
+   padding: 2rem;
+   margin-bottom: 1.5rem; 
+  } 
+  
+.industry-card img {
+  width: 100%;
+  height: fit-content;
+  object-fit: cover;
+}
+.industry-card h3 {
+  padding: 0rem;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+/* Footer */
+footer {
+  background-color: #ffd700;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-content h3 {
+  margin-bottom: 0.5rem;
+}
+
+.social-media a {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #004466;
+  transition: color 0.3s;
+}
+
+.social-media a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .top-bar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  header{
+    position: fixed; /* Sticky header for desktop after top bar */
+  }
+
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+
+
+  .nav-links {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .product-gallery {
+    flex-direction: row;
+    justify-content: center;
+  }
+    .company-history {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .dimension-image {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+  }
+}

@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FLANGES | Our Certifications - Popular Fittings</title>
+    <meta name="description" content="We are certified with all neccessary Government certifications">
+    <link rel="stylesheet" href="bodydesign.css">
+    <link rel="stylesheet" href="chatbutton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Specific styles for Certifications page */
+        .certifications-section {
+            padding: 4rem 1rem;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin-top: 12rem; /* Adjusted for fixed header/top bar */
+        }
+
+        .certifications-section h2 {
+            font-size: 2.5rem;
+            color: #004466;
+            margin-bottom: 2rem;
+        }
+
+        .certificate-gallery {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 2.5rem; /* Space between cards */
+            padding: 1rem;
+            justify-items: center; /* Center items in their grid cells */
+        }
+
+        .certificate-card {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden; /* Ensures image adheres to border-radius */
+            width: 100%; /* Take full width of grid cell */
+            max-width: 400px; /* Max width for individual cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* No cursor: pointer here for the card, as individual images will handle clicks */
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+        }
+
+        /* Container for multiple images within a card */
+        .card-images-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows images to wrap to next line */
+            justify-content: center; /* Center images horizontally */
+            gap: 10px; /* Space between images */
+            padding: 15px; /* Padding inside the image container */
+            background-color: #f1f1f1; /* Slight background to distinguish */
+        }
+
+        /* Styles for individual zoomable images */
+        .zoomable-certificate-image {
+            width: calc(33.33% - 10px); /* Approx 3 images per row, considering gap */
+            height: auto;
+            display: block;
+            object-fit: contain; /* Contain the image within its bounds */
+            border: 1px solid #ddd; /* Subtle border */
+            border-radius: 5px;
+            cursor: pointer; /* Indicate image is clickable */
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .zoomable-certificate-image:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            border-color: #ffd700; /* Highlight border on hover */
+        }
+        /* Single image within a card (like the government certificate) */
+        .certificate-card .single-image {
+            width: 100%; /* Make single image take full width */
+            padding: 0; /* No extra padding for single image */
+            border: none; /* No border for single image as card handles it */
+            border-radius: 0;
+        }
+        .certificate-card .single-image img {
+            border-bottom: 1px solid #eee; /* Maintain bottom border for consistency */
+        }
+
+        .certificate-card h3 {
+            font-size: 1.6rem;
+            color: #004466;
+            padding: 1.5rem 1rem;
+            background-color: #ffd700; /* Your brand's yellow */
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Responsive adjustments for Certifications */
+        @media (max-width: 768px) {
+            .certifications-section {
+                padding: 2rem 0.5rem;
+            }
+
+            .certifications-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .certificate-gallery {
+                grid-template-columns: 1fr; /* Stack vertically on small screens */
+                gap: 1.5rem;
+            }
+
+            .certificate-card {
+                max-width: 95%; /* Allow cards to take more width on small screens */
+            }
+
+            .certificate-card h3 {
+                font-size: 1.2rem;
+                padding: 1rem 0.8rem;
+            }
+
+            .zoomable-certificate-image {
+                width: calc(50% - 10px); /* 2 images per row on mobile */
+            }
+        }
+
+        /* --- Overlay (Zoom) Styles --- */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Ensure it's on top of everything */
+            opacity: 0; /* Start hidden */
+            visibility: hidden; /* Start hidden */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .overlay img {
+            max-width: 90%; /* Max width of the zoomed image */
+            max-height: 90%; /* Max height of the zoomed image */
+            object-fit: contain; /* Ensure the whole image is visible */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Soft glow around the image */
+            transform: scale(0.8); /* Start slightly smaller for zoom effect */
+            transition: transform 0.3s ease;
+        }
+
+        .overlay.active img {
+            transform: scale(1); /* Zoom to actual size */
+        }
+
+        .close-overlay {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 10000; /* Ensure close button is clickable */
+            transition: color 0.3s ease;
+        }
+
+        .close-overlay:hover {
+            color: #ffd700; /* Highlight on hover */
+        }
+
+        @media (max-width: 768px) {
+            .close-overlay {
+                top: 15px;
+                right: 20px;
+                font-size: 30px;
+            }
+            .overlay img {
+                max-width: 95%;
+                max-height: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-left">
+            <p>📞 8850039014</p>
+        </div>
+        <div class="top-right">
+            <i class="fas fa-envelope"></i> popularfittings@gmail.com
+        </div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <img src="images/logo.jpg" alt="Popular Tubes Logo" class="logo" />
+            <h1 class="company-name">Popular Fittings</h1>
+            <div class="menu-icons">
+                <span class="hamburger-icon" id="hamburger">&#9776;</span>
+                <span class="close-icon" id="close">&times;</span>
+            </div>
+        </div>
+        <nav id="nav-menu" class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="certificate.html">Certifications</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="certifications-section">
+        <h2>Our Certifications & Quality Assurance</h2>
+        <div class="certificate-gallery">
+
+            <div class="certificate-card">
+                <h3>REGISTRATION CERTIFICATES</h3>
+                <div class="card-images-container">
+                    <img src="images/GST_img3.jpg" alt="GST Certificate Part 1" class="zoomable-certificate-image">
+                    <img src="images/GST_img1.jpg" alt="GST Certificate Part 2" class="zoomable-certificate-image">
+                    <img src="images/GST_img2.jpg" alt="GST Certificate Part 3" class="zoomable-certificate-image">
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <h3>UDYAM Registration Certificates</h3>
+                <div class="card-images-container">
+             <img src="images/udyam1.jpg" alt="Company Registration Certificate Part 1" class="zoomable-certificate-image">
+             <img src="images/udyam2.jpg" alt="Company Registration Certificate Part 1" class="zoomable-certificate-image">                                          
+   </div> 
+            </div>
+
+            <div class="certificate-card">
+                <h3>IMPORT-EXPORT CODE</h3>
+                <div class="card-images-container single-image">
+                    <img src="images/IE_img.jpg" alt="Government Approved Certificate" class="zoomable-certificate-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="overlay" id="imageOverlay">
+        <span class="close-overlay" id="closeOverlay">&times;</span>
+        <img src="" alt="Zoomed Certificate" id="zoomedImage">
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h3>Contact Us</h3>
+                <p>Email: popularfittings@gmail.com</p>
+                <p>Phone: +918850039014 </p>
+                <p>REGD.OFFICE & GODOWN: Gala no 1289, survey no 69/11, Mohammadiya Estate, Pimpri thane-400612 Maharashtra.</p>
+                <p>Godown2:B.P.T plot no.222, kolasabunder, Darukhana Mumbi- 400 010 </p>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter-square"></i></a>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 Popular fittings . All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/+918850039014?text=Contact%20Us" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Hamburger Menu Logic (Existing)
+        const hamburger = document.getElementById('hamburger');
+        const closeIcon = document.getElementById('close');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            hamburger.style.display = 'none';
+            closeIcon.style.display = 'block';
+        });
+
+        closeIcon.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.style.display = 'block';
+            closeIcon.style.display = 'none';
+        });
+
+        // --- Image Zoom Logic (Updated to target individual images) ---
+        // Select all images that should be zoomable
+        const zoomableImages = document.querySelectorAll('.zoomable-certificate-image');
+        const imageOverlay = document.getElementById('imageOverlay');
+        const zoomedImage = document.getElementById('zoomedImage');
+        const closeOverlay = document.getElementById('closeOverlay');
+
+        zoomableImages.forEach(img => {
+            img.addEventListener('click', (event) => {
+                // event.target is the specific image that was clicked
+                zoomedImage.src = event.target.src; // Set the source of the zoomed image
+                imageOverlay.classList.add('active'); // Show the overlay
+                document.body.style.overflow = 'hidden'; // Prevent scrolling on background
+            });
+        });
+
+        closeOverlay.addEventListener('click', () => {
+            imageOverlay.classList.remove('active'); // Hide the overlay
+            document.body.style.overflow = ''; // Re-enable scrolling
+        });
+
+        // Optional: Close overlay if clicked outside the image
+        imageOverlay.addEventListener('click', (event) => {
+            if (event.target === imageOverlay) {
+                imageOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+
+</body>
+</html>

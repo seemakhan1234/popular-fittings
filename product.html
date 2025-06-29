@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Popular Fittings' extensive range of industrial products including Carbon Steel flanges and custom fittings for various industries.">
+    <title>Industrial Flanges, Tubes & Pipe Fittings | Our Products - Popular Fittings</title>
+    <link rel="stylesheet" href="bodydesign.css">
+     <link rel="stylesheet" href="product_design.css">
+    <link rel="stylesheet" href="chatbutton.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Specific styles for the product page */
+
+        /* Quote Section */
+        .product-quote-container {
+            position: relative;
+            background-color: #004466; /* Dark blue for a professional look */
+            color: #f7f7f7;
+            text-align: center;
+            padding: 4rem 1rem;
+            margin-top: 12rem; /* To account for fixed top bar and header */
+        }
+
+        .product-quote-text {
+            font-size: 2.5rem;
+            font-style: italic;
+            font-family: 'Georgia', serif;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-quote-author {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Product Details Section */
+        .product-details-section {
+            padding: 3rem 1rem;
+            background-color: #fffdf4;
+            text-align: center;
+        }
+
+        .product-details-section h2 {
+            color: #004466;
+            margin-bottom: 2.5rem;
+            font-size: 2.8rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 1rem;
+            justify-items: center;
+        }
+
+        .product-item {
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .product-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .product-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .product-info h3 {
+            color: #004466;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-info p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .product-info .learn-more {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #004466;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .product-info .learn-more:hover {
+            background-color: #004466;
+            color: #ffffff;
+        }
+
+        /* Modal for product details */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 2000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 8% auto; /* 8% from the top and centered */
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            max-width: 700px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: left;
+        }
+
+        .modal-content h3 {
+            color: #004466;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content ul {
+            list-style: disc inside;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .modal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .close-button {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Responsive adjustments for product page */
+        @media (max-width: 768px) {
+            
+
+            .product-quote-text {
+                font-size: 1.7rem;
+            }
+
+            .product-quote-author {
+                font-size: 1rem;
+            }
+
+            .product-details-section h2 {
+                font-size: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr; /* Stack products vertically on small screens */
+            }
+
+            .product-item img {
+                height: 200px; /* Adjust image height for mobile */
+            }
+
+            .product-info h3 {
+                font-size: 1rem;
+            }
+
+            .product-info p {
+                font-size: 0.95rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                padding: 20px;
+            }
+
+            .modal-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .modal-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-left">
+            <p>📞 8850039014</p>
+        </div>
+        <div class="top-right">
+            <i class="fas fa-envelope"></i> popularfittings@gmail.com
+        </div>
+    </div>
+
+    <header>
+        <div class="header-container">
+            <img src="images/logo.jpg" alt="Popular Tubes Logo" class="logo" />
+            <h1 class="company-name">Popular Fittings</h1>
+            <div class="menu-icons">
+                <span class="hamburger-icon" id="hamburger">&#9776;</span>
+                <span class="close-icon" id="close">&times;</span>
+            </div>
+        </div>
+        <nav id="nav-menu" class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="certificate.html">Certifications</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="product-quote-container">
+        <p class="product-quote-text">
+            "Quality fittings, engineered for excellence and durability."</p>
+    </section>
+
+    <section class="product-details-section">
+        <h2>Our Extensive Product Range</h2>
+        <div class="product-grid">
+            <div class="product-item" onclick="openProductModal('flanges')">
+                <img src="images/carbonimg1.jpg" alt="Industrial Flanges">
+                <div class="product-info">
+                    <h3>CARBON STEEL WELDNECK FLANGE </h3>
+                    <p>High-quality flanges for various industrial applications, ensuring secure and leak-proof connections.</p>
+                    <a href="#" class="learn-more">Learn More</a>
+                </div>
+            </div>
+
+            <div class="product-item" onclick="openProductModal('pipes_tubes')">
+                <img src="images/product2.jpg" alt="Pipes and Tubes">
+                <div class="product-info">
+                    <h3>CARBON STEEL SLIP ON FLANGES </h3>
+                    <p>Durable and reliable Flanges for fluid transfer in diverse industrial environments.</p>
+                    <a href="#" class="learn-more">Learn More</a>
+                </div>
+            </div>
+
+            <div class="product-item" onclick="openProductModal('pipe_fittings')">
+                <img src="images/product3.jpg" alt="Pipe Fittings">
+                <div class="product-info">
+                    <h3>CARBON STEEL BLIND FLANGES</h3>
+                    <p>A wide range of steel flanges for all your piping needs.</p>
+                    <a href="#" class="learn-more">Learn More</a>
+                </div>
+            </div>
+
+            <div class="product-item" onclick="openProductModal('gaskets')">
+                <img src="images/product4.jpg" alt="Industrial Gaskets">
+                <div class="product-info">
+                    <h3>SERIES "A" AND SERIES "B" A105 FLANGES</h3>
+                    <p>High-performance flanges designed for sealing applications in critical industrial systems.</p>
+                    <a href="#" class="learn-more">Learn More</a>
+                </div>
+            </div>
+
+            <div class="product-item" onclick="openProductModal('valves')">
+                <img src="images/product1.jpg" alt="Industrial Valves">
+                <div class="product-info">
+                    <h3>IS2062 PLATE FLANGES</h3>
+                    <p>Flanges for flow control, available in various types and materials.</p>
+                    <a href="#" class="learn-more">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeProductModal()">&times;</span>
+            <h3 id="modalProductName"></h3>
+            <p id="modalProductDescription"></p>
+            <div id="modalProductDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="contact">
+                <h3>Contact Us</h3>
+                <p>Email: popularfittings@gmail.com</p>
+                <p>Phone: +918850039014 </p>
+                <p>REGD.OFFICE & GODOWN: Gala no 1289, survey no 69/11, Mohammadiya Estate, Pimpri thane-400612 Maharashtra.</p>
+                <p>Godown2:B.P.T plot no.222, kolasabunder, Darukhana Mumbi- 400 010 </p>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter-square"></i></a>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2025 Popular fittings. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/+918850039014?text=Contact%20Us" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const closeIcon = document.getElementById('close');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            hamburger.style.display = 'none';
+            closeIcon.style.display = 'block';
+        });
+
+        closeIcon.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.style.display = 'block';
+            closeIcon.style.display = 'none';
+        });
+
+        // Product Modal functionality
+        const productModal = document.getElementById('productModal');
+        const modalProductName = document.getElementById('modalProductName');
+        const modalProductDescription = document.getElementById('modalProductDescription');
+        const modalProductDetails = document.getElementById('modalProductDetails');
+
+        const productData = {
+            flanges: {
+                name: "WELDNECK Flanges",
+                description:"Weld neck flange (WN flange) has a neck that can relocated stress of the pipe, so to reduce the pressure that gathered in the flange bottom. It is compatible to the pipelines that works in high or low temperature and bear high pressure. Specially for the pipe or the valves when PN is larger than 2.5 Mpa..",
+                details: ` 
+                    <ul>
+                        <li><strong>Materials:</strong> Carbon, Alloy steel Standards: ASTM A105, ASTM A182*</li>
+                        <li><strong>Sizes:</strong> ½" to 24", Customize upto 48"</li>  
+                        <li><strong>Thickness:</strong> Schedule 10(S) to SCH 160</li>
+                        <li><strong>Pressure Ratings:</strong> Class 150 to 2500</li>
+                        <li><strong>Face Type:</strong> RF, RTJ</li>
+                    </ul>
+                `
+            },
+            pipes_tubes: {
+                name: "CARBON STEEL SLIPON Flanges",
+                description: "Slip on flange, also called SO flange. It's a kind of flange slides over the pipe with internal design is slightly larger than the pipe. Since the inner diameter of the flange is slightly larger than the outer diameter of the pipe, that is designed to slide over the end of a pipe. The SO flange can be directly connected to equipment or pipe by fillet weld at the top and bottom of the flange. It is used to insert the pipe into the inner hole of the flange.",
+                details: `
+                    <ul>
+                        <li><strong>Materials:</strong> Carbon, Alloy steel Standards: ASTM A105, ASTM A182*</li>
+                        <li><strong>Sizes:</strong> ½" to 24", Customize upto 48"</li>  
+                        <li><strong>Thickness:</strong> Schedule 10(S) to SCH 160</li>
+                        <li><strong>Pressure Ratings:</strong> Class 150 to 2500</li>
+                        <li><strong>Face Type:</strong> RF, RTJ</li>
+                        
+                    </ul>
+                `
+            },
+            pipe_fittings: {
+                name: "CARBON STEEL BLIND Flanges",
+                description: "Blind flanges are solid, disk-shaped components used to terminate or seal off the ends of piping systems and prevent flow.",
+                details: `
+                    <ul>
+                        <li><strong>Materials:</strong> Carbon, Alloy steel Standards: ASTM A105, ASTM A182*</li>
+                        <li><strong>Sizes:</strong> ½" to 24", Customize upto 48"</li>  
+                        <li><strong>Thickness:</strong> Schedule 10(S) to SCH 160</li>
+                        <li><strong>Pressure Ratings:</strong> Class 150 to 2500</li>
+                        <li><strong>Face Type:</strong> RF, RTJ</li>
+                    </ul>
+                `
+            },
+            gaskets: {
+                name: "CARBON STEEL  SERIES A AND B A105 Flanges",
+                description: "ASME B16.47 Series A weld neck flanges are specified for larger diameter pipes 26' to  60' and come in various pressure classes (75, 150, 300, 400, 600, and 900). Series A flanges are characterized by their thicker flange thickness, larger bolt hole diameter, and heavier overall weight compared to Series B flanges.",
+                details: `
+                    <ul>
+                        <li><strong>Key Dimentions:</strong> </li>
+                        <li><strong>Normal Pipe Sizes:</strong>Indicates the flange's pipe size, ranging from 26" to 60".</li>
+                        <li><strong>Outside Diameter(O.D):</strong> The overall diameter of the flange, varying based on NPS and pressure class</li>
+                    </ul>
+                `
+            },
+            valves: {
+                name: "CARBON STEEL IS2062 Flanges",
+                description: "IS2062 Plate flanges are the kind of flange slides over the pipe with internal design is slightly larger than the pipe. Since the inner diameter of the flange is slightly larger than the outer diameter of the pipe, that is designed to slide over the end of a pipe. The plate flange can be directly connected to equipment or pipe by fillet weld at the top and bottom of the flange. It is used to insert the pipe into the inner hole of the flange",
+                details: `
+                    <ul>
+                        <li><strong>Materials:</strong> Carbon, Alloy steel Standards: ASTM A105, ASTM A182*</li>
+                        <li><strong>Sizes:</strong> ½" to 24", Customize upto 48"</li>  
+                        <li><strong>Thickness:</strong> Schedule 10(S) to SCH 160</li>
+                        <li><strong>Pressure Ratings:</strong> Class 150 to 2500</li>
+                        <li><strong>Face Type:</strong> RF, RTJ</li>
+                    </ul>
+                `
+            },
+           
+        };
+
+        function openProductModal(productId) {
+            const product = productData[productId];
+            if (product) {
+                modalProductName.textContent = product.name;
+                modalProductDescription.textContent = product.description;
+                modalProductDetails.innerHTML = product.details;
+                productModal.style.display = 'block';
+            }
+        }
+
+        function closeProductModal() {
+            productModal.style.display = 'none';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == productModal) {
+                closeProductModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

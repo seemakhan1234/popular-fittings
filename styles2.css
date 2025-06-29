@@ -1,0 +1,72 @@
+/* Highlight current page */
+.nav-links li a.active {
+    text-decoration: underline;
+  }
+  
+  /* Contact Page Hero */
+  .contact-hero {
+    margin-top: 130px;
+    background-color: #f3f4f6;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  .contact-hero h1 {
+    font-size: 2.5rem;
+    color: #004466;
+    margin-bottom: 1rem;
+  }
+  .contact-hero p {
+    font-style: italic;
+    color: #333;
+    font-size: 1.2rem;
+  }
+  .hero-img {
+    max-width: 100%;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Contact Details Section */
+  .contact-details {
+    background-color: #e0f7fa;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  .detail-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 280px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  .detail-box i {
+    font-size: 2rem;
+    color: #004466;
+    margin-bottom: 1rem;
+  }
+  .detail-box h3 {
+    color: #004466;
+    margin-bottom: 0.5rem;
+  }
+  .detail-box p {
+    font-size: 1rem;
+    color: #333;
+  }
+  .detail-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .detail-box {
+      width: 90%;
+    }
+  }
+  
