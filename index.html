@@ -48,6 +48,8 @@
         .product-card img {
             transition:translateX(100px);
             transition: 2s;
+          height: 800px;
+          width: auto;
         }
 
         .product-card:hover img {
@@ -71,11 +73,33 @@
             width: 100%; /* Make cards take full width in their grid cell */
             max-width: none; /* Override max-width for grid layout */
         }
+        /*industry card */
+         .industry-card img {   
+          height: 150px;
+          width: 100%;
+        }
+
+        .industry-card {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);   
+            overflow: hidden;
+            width: 100%; /* Make cards take full width in their grid cell */
+            max-width: none; /* Override max-width for grid layout */
+        }
+
 
         @media (min-width: 768px) {
             .product-gallery {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
+             .industry-card img {   
+          height: 500px;
+          width: 100%;
+        }
+        .dimension-card img { height: auto;
+          width: 50%;
+          
+        }
         }
       .product-details-section {
             padding: 3rem 1rem;
@@ -114,7 +138,7 @@
 
         .product-item img {
             width: 100%;
-            height: 250px;
+           height:max-content;
             object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
@@ -144,13 +168,16 @@
             }
 
             .product-item img {
-                height: 200px; /* Adjust image height for mobile */
+                height: 300px; /* Adjust image height for mobile */
+             
+               
             }
 
             .product-info h3 {
                 font-size: 1rem;
             }
          }
+
 
     </style>
 </head>
@@ -224,7 +251,7 @@
   <section class="description">
         <h1 style="font-size: 2.5rem; text-align: center; margin-top: 2rem;">Welcome to Popular Fittings: Your Trusted Industrial Fittings Manufacturer</h1>
         <div class="company-history">
-            <p style="font-size: 1.3rem;">As a leading **manufacturer, stockist, and supplier** of all types of <a href="product.html">industrial flanges and  fittings</a>, Popular Fittings is your trusted partner for high-quality industrial components.</p><br>
+            <p style="font-size: 1.3rem;">As a leading "Manufacturer, Stockist, and Supplier" of all types of <a href="product.html">industrial flanges and  fittings</a>, Popular Fittings is your trusted partner for high-quality industrial components.</p><br>
             <p style="font-size: 0.9rem;">Established in 2004, Popular Fittings in Mumbai has grown to become a premier stockist and manufacturer of CS flanges and a wide range of industrial fittings. Our family-owned business prides itself on delivering high-quality products, ensuring customer satisfaction, and providing superior services to our clients across India. <a href="about.html">Learn more about our legacy and commitment</a>.</p>
             <br>
             <p style="font-size: 0.9rem;">Founded by the experienced Mr. Ishtiyaque Ahmed, Popular Fittings is dedicated to providing reliable quality solutions for critical applications in the marine industry, petroleum plants, oil solvent plants, water treatment plants, fertilizer plants, and various other heavy mechanical industries.</p>
@@ -234,41 +261,40 @@
     <section class="product-details-section">
         <h2>Our Products </h2>
         <div class="product-grid">
-            <div class="product-item">
-                <img src="images/carbonimg1.jpg" alt="Industrial Flanges">
-                <div class="product-info">
-                    <h3>CARBON STEEL WELDNECK FLANGE </h3>
-                    
-                </div>
-            </div>
+            <div class="product-item" data-description="Our Carbon Steel Weldneck Flanges are engineered for high-pressure and high-temperature applications, ensuring leak-free connections. Available in various sizes and standards, compliant with international specifications.">
+    <img src="images/carbonimg1.jpg" alt="Industrial Flanges">
+    <div class="product-info">
+        <h3>CARBON STEEL WELDNECK FLANGE </h3>
+    </div>
+</div>
 
-            <div class="product-item">
-                <img src="images/product2.jpg" alt="Pipes and Tubes">
-                <div class="product-info">
-                    <h3>CARBON STEEL SLIP ON FLANGES </h3>
-                    
-                </div>
-            </div>
+<div class="product-item" data-description="These Carbon Steel Slip On Flanges provide easy alignment and installation, making them a popular choice for many industrial piping systems due to their cost-effectiveness and versatility.">
+    <img src="images/product2.jpg" alt="Pipes and Tubes">
+    <div class="product-info">
+        <h3>CARBON STEEL SLIP ON FLANGES </h3>
+    </div>
+</div>
 
-            <div class="product-item" >
-                <img src="images/product3.jpg" alt="Pipe Fittings">
-                <div class="product-info">
-                    <h3>CARBON STEEL BLIND FLANGES</h3>
-                </div>
-            </div>
+<div class="product-item" data-description="Robust Carbon Steel Blind Flanges are used to close the ends of piping systems, offering excellent sealing and durability for maintenance or future extensions. They are crucial for system isolation.">
+    <img src="images/product3.jpg" alt="Pipe Fittings">
+    <div class="product-info">
+        <h3>CARBON STEEL BLIND FLANGES</h3>
+    </div>
+</div>
 
-            <div class="product-item" >
-                <img src="images/product4.jpg" alt="Industrial Gaskets">
-                <div class="product-info">
-                    <h3>SERIES "A" AND SERIES "B" A105 FLANGES</h3>
-                </div>
-            </div>
+<div class="product-item" data-description="We supply both Series A and Series B A105 Flanges, manufactured to precise industry standards for critical pipeline connections. Each series meets specific dimensional requirements for seamless integration.">
+    <img src="images/product4.jpg" alt="Industrial Gaskets">
+    <div class="product-info">
+        <h3>SERIES "A" AND SERIES "B" A105 FLANGES</h3>
+    </div>
+</div>
 
-            <div class="product-item" >
-                <img src="images/product1.jpg" alt="Industrial Valves">
-                <div class="product-info">
-                    <h3>IS2062 PLATE FLANGES</h3>
-                </div>
+<div class="product-item" data-description="IS2062 Plate Flanges are known for their high strength and excellent weldability, commonly used in general engineering and structural applications where robust connections are required.">
+    <img src="images/product1.jpg" alt="Industrial Valves">
+    <div class="product-info">
+        <h3>IS2062 PLATE FLANGES</h3>
+    </div>
+</div>
             </div>
         </div>
     </section>
@@ -286,33 +312,27 @@
   <!----------industry--------->
   <section class="Industries">
     <P style="text-align: center;">POPULAR FITTING'S products are used in wide variety of applications in industrial sections</P>
-    <h2 style="text-align: center;">   INDUSTRIES WE CATER TO </h2>
-    <div class="industry-card">
-      <div class="industry-image">
-        <img src= "images/cement.jpg"  alt="Dimensions">
-        <h3>Cement Industry</h3>
-        
-      </div>
-      <div class="industry-card">
-      <div class="industry-image">
-        <img src= "images/oil.jpg"  alt="Dimensions">
-        <h3>Oil & Gas  Industry</h3>
-        
-      </div>
-      <div class="industry-card">
-      <div class="industry-image">
-        <img src= "images/sugar.jpg"  alt="Dimensions">
-        <h3>Sugar Industry</h3>
-        
-      </div>
-       <div class="industry-card">
-      <div class="industry-image">
-        <img src= "images/marine.jpg"  alt="Dimensions">
-        <h3>Marine Industry</h3>
-        
-      </div>
-    </div>
-  </section>
+    <h2 style="text-align: center;">   INDUSTRIES WE CATER TO </h2>
+    
+    <div class="industry-image"> 
+        <div class="industry-card">
+            <img src="images/cement.jpg" alt="Cement industry">
+            <h3>Cement industry</h3>
+        </div>
+        <div class="industry-card">
+            <img src="images/oil.jpg" alt="Oil & Gas industry">
+            <h3>Oil & Gas industry</h3>
+        </div>
+        <div class="industry-card">
+            <img src="images/sugar.jpg" alt="Sugar industry">
+            <h3>Sugar industry</h3>
+        </div>
+        <div class="industry-card">
+            <img src="images/marine.jpg" alt="Marine industry">
+            <h3>Marine industry</h3>
+        </div>
+        </div>
+</section>
 
   <!-- Footer -->
   <footer>
@@ -321,7 +341,7 @@
         <h3>Contact Us</h3>
         <p>Email:<u>popularfittings@gmail.com</u> </p>
       
-        <p>Phone:  <u>+918850039014</u> </p> <br>
+        <p>Phone:  <u>+918850039014</u> </p>
         <p>REGD.OFFICE & GODOWN: Gala no 1289, survey no 69/11, Mohammadiya Estate, Pimpri thane-400612 Maharashtra.</p> 
       <p>Godown2:B.P.T plot no.222, kolasabunder, Darukhana Mumbai- 400 010 </p></div>
       <div class="social-media">
@@ -337,6 +357,15 @@
    <a href="https://wa.me/+918850039014?text=Hi,%20I%20visited%20your%20website" class="whatsapp-button" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span> <img id="modalImage" src="" alt="Product Full Image">
+        <div class="modal-details">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+</div>
 <script>
   const hamburger = document.getElementById('hamburger');
   const closeIcon = document.getElementById('close');
@@ -353,6 +382,67 @@
     hamburger.style.display = 'block';
     closeIcon.style.display = 'none';
   });
+ 
+
+
+
+// Product Modal Script
+const productItems = document.querySelectorAll('.product-item'); // Selects all product cards
+const modal = document.getElementById('productModal');           // The modal overlay
+const modalImage = document.getElementById('modalImage');         // The image inside the modal
+const modalTitle = document.getElementById('modalTitle');         // The title inside the modal
+const modalDescription = document.getElementById('modalDescription'); // The description inside the modal
+const closeButton = document.querySelector('.modal .close-button'); // The close button within the modal
+
+productItems.forEach(item => {
+    item.addEventListener('click', (event) => {
+        // Prevent the click event from bubbling up to parent elements.
+        // This is a defensive measure in case an outer container also has a listener.
+        event.stopPropagation(); 
+
+        const imgSrc = item.querySelector('img').src; // Get the source of the product image
+        const titleText = item.querySelector('h3').textContent; // Get the product title
+        // Get the description from the data-description attribute, or a default string
+        const descriptionText = item.dataset.description || 'No detailed description available for this product.';
+
+        // Populate the modal with the retrieved information
+        modalImage.src = imgSrc;
+        modalTitle.textContent = titleText;
+        modalDescription.textContent = descriptionText;
+
+        modal.style.display = 'flex'; // Show the modal (using flex for centering)
+        document.body.style.overflow = 'hidden'; // Prevent scrolling of the background content
+    });
+});
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = 'none'; // Hide the modal
+    document.body.style.overflow = ''; // Re-enable scrolling of the background content
+}
+
+// When the user clicks on the close button (x), close the modal
+closeButton.addEventListener('click', (event) => {
+    // Prevent this click from bubbling up to the modal overlay and immediately re-closing it
+    event.stopPropagation(); 
+    closeModal();
+});
+
+// When the user clicks anywhere outside of the modal content (on the overlay), close it
+window.addEventListener('click', (event) => {
+    // Only close if the click target is exactly the modal overlay itself,
+    // not any content *inside* the modal-content box.
+    if (event.target === modal) {
+        closeModal();
+    }
+});
+
+// Optional: Close modal when the Escape key is pressed
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.style.display === 'flex') { // Check if modal is visible
+        closeModal();
+    }
+});
 </script>
 
 
