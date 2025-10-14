@@ -1,0 +1,16 @@
+# This applies to all web crawlers
+User-agent: *
+
+# Disallow administrative and sensitive areas (adjust paths for your CMS if needed)
+Disallow: /cgi-bin/
+Disallow: /wp-admin/ 
+Disallow: /temp/
+
+# Disallow internal search results (using '?' to block query strings)
+Disallow: /*?
+
+# Explicitly allow the pages you want crawled (optional, but good practice for clarity)
+Allow: /
+
+# Locate the XML Sitemap
+Sitemap: https://www.msflange.in/sitemap.xml 
