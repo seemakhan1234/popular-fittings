@@ -1,28 +1,51 @@
+
  /* WhatsApp Button Styles */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 70px;
-            right: 5px;
-            z-index: 1000;
-            display: none; /* Hidden by default, shown in mobile view */
-            background-color: #25D366; /* WhatsApp green */
-            color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            text-align: center;
-            line-height: 60px;
-            font-size: 24px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
+     .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366; /* Standard WhatsApp green */
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-        .whatsapp-button:hover {
-            background-color: #128C7E;
-        }
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    color: white;
+}
+       
+          /* Floating Phone Call Button */
+.phone-button {
+    position: fixed;
+    bottom: 85px; /* Positioned neatly above the WhatsApp button */
+    right: 20px;
+    background-color: #004466; /* Matches your Popular Fittings brand blue */
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
-        /* Show WhatsApp button on mobile view */
-        @media (max-width: 768px) {
-            .whatsapp-button {
-                display: block;
-            }
-        }
+.phone-button:hover {
+    background-color: #006699;
+    transform: scale(1.1);
+    color: white;
+}
